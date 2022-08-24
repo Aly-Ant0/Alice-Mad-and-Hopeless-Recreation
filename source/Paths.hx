@@ -110,6 +110,26 @@ class Paths
 		return getPath('images/$key.png', IMAGE, library);
 	}
 
+	inline static public function twistedStage(key:String)
+	{
+		return image('songlist/twisted_twins/stage/$key', 'shared');
+	}
+
+	inline static public function twistedChar(key:String)
+	{
+		return getSparrowAtlas('songlist/twisted_twins/characters/$key', 'shared');
+	}
+
+	inline static public function twistedJumpscare(key:String)
+	{
+		return image('songlist/twisted_twins/jumpscares/$key', 'shared');
+	}
+
+	inline static public function twistedTranformer(key:String)
+	{
+		return image('songlist/twisted_twins/animations/$key', 'shared');
+	}
+
 	inline static public function font(key:String)
 	{
 		return 'assets/fonts/$key';
