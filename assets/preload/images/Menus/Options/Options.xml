@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Options.png">
+	<!-- Created with Adobe Animate version 21.0.0.35450 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="BotPlay" x="0" y="0" width="480" height="135"/>
+	<SubTexture name="DownscrollOption" x="500" y="0" width="480" height="135"/>
+	<SubTexture name="Effects" x="0" y="155" width="480" height="135"/>
+	<SubTexture name="FPSOption" x="500" y="155" width="480" height="135"/>
+	<SubTexture name="Keybinds" x="0" y="310" width="480" height="135"/>
+	<SubTexture name="Resolution" x="500" y="310" width="480" height="135"/>
+</TextureAtlas>

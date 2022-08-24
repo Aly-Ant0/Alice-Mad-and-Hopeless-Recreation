@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="bars.png">
+	<!-- Created with Adobe Animate version 21.0.0.35450 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Blue0000" x="0" y="0" width="1189" height="211"/>
+	<SubTexture name="Dark blue0000" x="0" y="221" width="1189" height="211"/>
+	<SubTexture name="CGray0000" x="0" y="442" width="1189" height="211"/>
+	<SubTexture name="Gray blue0000" x="0" y="663" width="1189" height="211"/>
+	<SubTexture name="Green0000" x="0" y="884" width="1189" height="211"/>
+	<SubTexture name="Red0000" x="0" y="1105" width="1189" height="211"/>
+	<SubTexture name="Yellow0000" x="0" y="1326" width="1189" height="211"/>
+</TextureAtlas>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="TestChar.png">
+	<!-- Created with Adobe Animate version 21.0.0.35450 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="testcharDownStatic0000" x="0" y="0" width="47" height="33"/>
+	<SubTexture name="testcharDownWalking0000" x="47" y="0" width="47" height="33"/>
+	<SubTexture name="testcharDownWalking0001" x="94" y="0" width="47" height="33"/>
+	<SubTexture name="testcharDownWalking0002" x="141" y="0" width="47" height="33"/>
+	<SubTexture name="testcharDownWalking0003" x="188" y="0" width="47" height="33"/>
+	<SubTexture name="testcharDownWalking0004" x="0" y="33" width="47" height="33"/>
+	<SubTexture name="testcharLeftStatic0000" x="47" y="33" width="47" height="33"/>
+	<SubTexture name="testcharLeftWalking0000" x="94" y="33" width="47" height="33"/>
+	<SubTexture name="testcharLeftWalking0001" x="141" y="33" width="47" height="33"/>
+	<SubTexture name="testcharLeftWalking0002" x="188" y="33" width="47" height="33"/>
+	<SubTexture name="testcharLeftWalking0003" x="0" y="66" width="47" height="33"/>
+	<SubTexture name="testcharLeftWalking0004" x="47" y="66" width="47" height="33"/>
+	<SubTexture name="testcharRightStatic0000" x="94" y="66" width="47" height="33"/>
+	<SubTexture name="testcharRightWalking0000" x="141" y="66" width="47" height="33"/>
+	<SubTexture name="testcharRightWalking0001" x="188" y="66" width="47" height="33"/>
+	<SubTexture name="testcharRightWalking0002" x="0" y="99" width="47" height="33"/>
+	<SubTexture name="testcharRightWalking0003" x="47" y="99" width="47" height="33"/>
+	<SubTexture name="testcharRightWalking0004" x="94" y="99" width="47" height="33"/>
+	<SubTexture name="testcharUpStatic0000" x="141" y="99" width="47" height="33"/>
+	<SubTexture name="testcharUpWalking0000" x="188" y="99" width="47" height="33"/>
+	<SubTexture name="testcharUpWalking0001" x="0" y="132" width="47" height="33"/>
+	<SubTexture name="testcharUpWalking0002" x="47" y="132" width="47" height="33"/>
+	<SubTexture name="testcharUpWalking0003" x="94" y="132" width="47" height="33"/>
+	<SubTexture name="testcharUpWalking0004" x="141" y="132" width="47" height="33"/>
+</TextureAtlas>

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="diff.png">
+	<!-- Created with Adobe Animate version 21.0.0.35450 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Crybaby" x="0" y="0" width="410" height="97"/>
+	<SubTexture name="Hopeless" x="0" y="107" width="410" height="97"/>
+	<SubTexture name="Mad" x="0" y="214" width="410" height="97"/>
+</TextureAtlas>
