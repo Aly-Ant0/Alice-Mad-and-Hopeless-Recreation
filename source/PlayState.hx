@@ -339,6 +339,24 @@ class PlayState extends MusicBeatState
 
 		switch(SONG.stage)
 		{
+			case 'countdownStage': // o stage que esta na contagem regressiva no twisted twins pra quem ta confuso -aly ant
+			case 'test':
+			{
+				curStage = 'tweedles';
+				var bg:FlxSprite = new FlxSprite(-265.4, -265.9).loadGraphic(Paths.twistedStage('1L')); // coordinates from flash 8 lol
+				bg.antialiasing = true;
+				bg.scrollFactor.set(0.10, 0.3);
+				add(bg);
+
+				var light:FlxSprite = new FlxSprite(-252.3, -380.1).loadGraphic(Paths.twistedStage('light2'));
+				light.antialiasing = true;
+				light.scrollFactor.set(0.2, 0.2);
+				add(light);
+			}
+			case 'twisted-twins2': // eu vou fazer isso ai depois to com preguiça lmao -aly ant
+			{
+				
+			}
 			case 'halloween': 
 			{
 				curStage = 'spooky';
@@ -782,6 +800,10 @@ class PlayState extends MusicBeatState
 		// REPOSITIONING PER STAGE
 		switch (curStage)
 		{
+			case 'test':
+				gf.setPosition(201.9, -40.3);
+				dad.setPosition(-206.3, -204.9);
+				boyfriend.setPosition(770.0, 236.7);
 			case 'limo':
 				boyfriend.y -= 220;
 				boyfriend.x += 260;
@@ -1824,8 +1846,8 @@ class PlayState extends MusicBeatState
 		// FlxG.watch.addQuick('VOL', vocals.amplitudeLeft);
 		// FlxG.watch.addQuick('VOLRight', vocals.amplitudeRight);
 
-		iconP1.setGraphicSize(Std.int(FlxMath.lerp(150, iconP1.width, 0.50)));
-		iconP2.setGraphicSize(Std.int(FlxMath.lerp(150, iconP2.width, 0.50)));
+		iconP1.setGraphicSize(Std.int(FlxMath.(150, iconP1.width, 0.50)));
+		iconP2.setGraphicSize(Std.int(FlxMath.(150, iconP2.width, 0.50)));
 
 		iconP1.updateHitbox();
 		iconP2.updateHitbox();
@@ -2087,8 +2109,8 @@ class PlayState extends MusicBeatState
 
 		if (camZooming)
 		{
-			FlxG.camera.zoom = FlxMath.lerp(defaultCamZoom, FlxG.camera.zoom, 0.95);
-			camHUD.zoom = FlxMath.lerp(1, camHUD.zoom, 0.95);
+			FlxG.camera.zoom = FlxMath.(defaultCamZoom, FlxG.camera.zoom, 0.95);
+			camHUD.zoom = FlxMath.(1, camHUD.zoom, 0.95);
 		}
 
 		FlxG.watch.addQuick("beatShit", curBeat);
