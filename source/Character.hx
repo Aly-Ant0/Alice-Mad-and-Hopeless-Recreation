@@ -411,32 +411,44 @@ class Character extends FlxSprite
 
 			case 'alice-sadness':
 				frames = Paths.twistedChar('alice/RealB');
-				animation.addByPrefix('singUP', "BF Dies pixel", 24, false);
-				animation.addByPrefix('firstDeath', "BF Dies pixel", 24, false);
-				animation.addByPrefix('deathLoop', "Retry Loop", 24, true);
-				animation.addByPrefix('deathConfirm', "RETRY CONFIRM", 24, false);
-				animation.play('firstDeath');
+				animation.addByPrefix('idle', "Idle", 24, false);
+				animation.addByPrefix('singLEFT', "Left", 24, false);
+				animation.addByPrefix('singRIGHT', "Right", 24, true);
+				animation.addByPrefix('singDOWN', "Down", 24, false);
+				animation.addByPrefix('singUP', "Up", 24, false);
+				animation.addByPrefix('scream', 'Scream', 24, false);
+				//animation.play('firstDeath');
 
 				addOffset('idle', -5);
 				addOffset("singUP", -29, 27);
 				addOffset("singRIGHT", -38, -7);
 				addOffset("singLEFT", 12, -6);
 				addOffset("singDOWN", -10, -50);
-				addOffset("singUPmiss", -29, 27);
-				addOffset("singRIGHTmiss", -30, 21);
-				addOffset("singLEFTmiss", 12, 24);
-				addOffset("singDOWNmiss", -11, -19);
-				addOffset("hey", 7, 4);
-				addOffset('firstDeath', 37, 11);
-				addOffset('deathLoop', 37, 5);
-				addOffset('deathConfirm', 37, 69);
-				addOffset('scared', -4);
-				playAnim('firstDeath');
-				// pixel bullshit
-				setGraphicSize(Std.int(width * 6));
+
+				setGraphicSize(Std.int(width * 1.4));
 				updateHitbox();
-				antialiasing = false;
-				flipX = true;
+				antialiasing = true;
+				flipX = true; // sla saporra
+			case 'alice-happy':
+				frames = Paths.twistedChar('alice/RealB');
+				animation.addByPrefix('idle', "AIdle_Alt", 24, false);
+				animation.addByPrefix('singLEFT', "ALeft_Alt", 24, false);
+				animation.addByPrefix('singRIGHT', "ARight_Alt", 24, true);
+				animation.addByPrefix('singDOWN', "ADown_Alt", 24, false);
+				animation.addByPrefix('singUP', "AUp_Alt", 24, false);
+				animation.addByPrefix('scream', 'Scream', 24, false); // ok
+				//animation.play('firstDeath');
+
+				addOffset('idle', -5);
+				addOffset("singUP", -29, 27);
+				addOffset("singRIGHT", -38, -7);
+				addOffset("singLEFT", 12, -6);
+				addOffset("singDOWN", -10, -50);
+
+				setGraphicSize(Std.int(width * 1.4));
+				updateHitbox();
+				antialiasing = true;
+				flipX = true; // sla saporra
 			case 'dee':
 				
 			case 'dum':
