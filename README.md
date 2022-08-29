@@ -1,7 +1,3 @@
-o mod não é meu não ein pq eu esqueci de botar recreation no nome 
+# Original mod by Malicious Bunny
 
-e malicious bunny, por favor não me processa eu tenho nenhuma intenção de te copiar.
-inclusive o mod ficou muito bom
-
-# Mod by Malicious Bunny
-It's just a recreation.
+It's just a android recreation.
