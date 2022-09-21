@@ -1,4 +1,5 @@
-package;
+package; // first time that i code in kade engine
+// and i will leave some random messages in my code cuz i feel alone
 
 import flixel.input.keyboard.FlxKey;
 import haxe.Exception;
@@ -85,6 +86,7 @@ class PlayState extends MusicBeatState
 
 	public static var rep:Replay;
 	public static var loadRep:Bool = false;
+	var temDoisOponente:Bool = false;
 
 	public static var noteBools:Array<Bool> = [false, false, false, false];
 
@@ -207,6 +209,8 @@ class PlayState extends MusicBeatState
 	private var botPlayState:FlxText;
 	// Replay shit
 	private var saveNotes:Array<Float> = [];
+	public var enemyVoices1:FlxSound;
+	public var enemyVoices2:FlxSound;
 
 	private var executeModchart = false;
 
@@ -214,6 +218,7 @@ class PlayState extends MusicBeatState
 	
 	public function addObject(object:FlxBasic) { add(object); }
 	public function removeObject(object:FlxBasic) { remove(object); }
+	// not helpful
 
 
 	override public function create()
@@ -340,20 +345,44 @@ class PlayState extends MusicBeatState
 		switch(SONG.stage)
 		{
 			case 'countdownStage': // o stage que esta na contagem regressiva no twisted twins pra quem ta confuso -aly ant
+			{
+				curStage = 'countdown';
+				var bg:FlxSprite = new FlxSprite(-545, -635).loadGraphic(Paths.twistedStage('1'));
+				bg.antialiasing=true;
+				bg.scrollFactor.set(0.3, 0.3);
+				bg.x+=200; // lazy for use calculator
+				bg.y+=200;
+				bg.setGraphicSize(Std.int(bg.width*1.513));
+				bg.updateHitbox();
+
+				var osmlkdokrl:FlxSprite = new FlxSprite(-195, 45);
+				osmlkdokrl.frames = Paths.twistedChar('LancyLucy');
+				osmlkdokrl.animation.addByPrefix('pog', 'Idle', 24, true);
+				osmlkdokrl.animation.play('pog');
+				osmlkdokrl.antialiasing = true;
+				osmlkdokrl.scrollFactor.set(0.1, 0.1);
+				osmlkdokrl.x += 50;
+				osmlkdokrl.y += 50;
+				add(osmlkdokrl);
+			}
 			case 'test':
 			{
 				curStage = 'tweedles';
-				var bg:FlxSprite = new FlxSprite(-265.4, -265.9).loadGraphic(Paths.twistedStage('1L')); // coordinates from flash 8 lol
+				var bg:FlxSprite = new FlxSprite(-365, -565).loadGraphic(Paths.twistedStage('1L')); // coordinates from flash 8 lol
 				bg.antialiasing = true;
+				bg.setGraphicSize(Std.int(bg.width * 1.8));
+				bg.updateHitbox();
 				bg.scrollFactor.set(0.10, 0.3);
 				add(bg);
 
-				var light:FlxSprite = new FlxSprite(-252.3, -380.1).loadGraphic(Paths.twistedStage('light2'));
+				var light:FlxSprite = new FlxSprite(-455, -580).loadGraphic(Paths.twistedStage('light2'));
 				light.antialiasing = true;
+				light.setGraphicSize(Std.int(light.width * 1.8);
+				light.updateHitbox();
 				light.scrollFactor.set(0.2, 0.2);
 				add(light);
 			}
-			case 'twisted-twins2': // eu vou fazer isso ai depois to com preguiça lmao -aly ant
+			case 'twisted-twins2': // eu vou fazer isso ai depois to com preguiça -aly ant
 			{
 				
 			}
@@ -800,7 +829,12 @@ class PlayState extends MusicBeatState
 		// REPOSITIONING PER STAGE
 		switch (curStage)
 		{
-			case 'test':
+			case 'countdown':
+				gf.alpha = 0;
+				dad.alpha=0;
+			case 'tweedles':
+				gf.alpha=1;
+				dad.alpha=1;
 				gf.setPosition(201.9, -40.3);
 				dad.setPosition(-206.3, -204.9);
 				boyfriend.setPosition(770.0, 236.7);
@@ -1012,7 +1046,7 @@ class PlayState extends MusicBeatState
 
 		// cameras = [FlxG.cameras.list[1]];
 		startingSong = true;
-		
+
 		if (isStoryMode)
 		{
 			switch (curSong.toLowerCase())
@@ -1070,6 +1104,16 @@ class PlayState extends MusicBeatState
 
 		super.create();
 	}
+	/*
+	var trui:FlxSprite;
+	var chiuo:FlxSprite;
+	var uan:FlxSprite;
+	var preiistexo:FlxSprite;
+	function startCountdownTwisted() {
+		trui = new FlxSprite().loadGraphic(Paths.image('321go/'));
+	}
+	*/ 
+	// unused
 
 	function schoolIntro(?dialogueBox:DialogueBox):Void
 	{
@@ -1157,6 +1201,7 @@ class PlayState extends MusicBeatState
 
 	var startTimer:FlxTimer;
 	var perfectMode:Bool = false;
+	var swagCounter:Int = 0;
 
 	var luaWiggles:Array<WiggleEffect> = [];
 
@@ -1171,7 +1216,6 @@ class PlayState extends MusicBeatState
 		generateStaticArrows(0);
 		generateStaticArrows(1);
 
-
 		#if (windows || android)
 		if (executeModchart)
 		{
@@ -1181,20 +1225,17 @@ class PlayState extends MusicBeatState
 		#end
 
 		talking = false;
-		startedCountdown = true;
 		Conductor.songPosition = 0;
 		Conductor.songPosition -= Conductor.crochet * 5;
 
-		var swagCounter:Int = 0;
-
-		startTimer = new FlxTimer().start(Conductor.crochet / 1000, function(tmr:FlxTimer)
+		startTimer = new FlxTimer().start(1.5, function(tmr:FlxTimer)
 		{
 			dad.dance();
 			gf.dance();
 			boyfriend.playAnim('idle');
 
 			var introAssets:Map<String, Array<String>> = new Map<String, Array<String>>();
-			introAssets.set('default', ['ready', "set", "go"]);
+			introAssets.set('default', ['321go/ready', "321go/set", "321go/go"]);
 			introAssets.set('school', [
 				'weeb/pixelUI/ready-pixel',
 				'weeb/pixelUI/set-pixel',
@@ -1219,18 +1260,13 @@ class PlayState extends MusicBeatState
 			}
 
 			switch (swagCounter)
-
 			{
 				case 0:
-					FlxG.sound.play(Paths.sound('intro3' + altSuffix), 0.6);
+					// do nothing
 				case 1:
+					FlxG.sound.play(Paths.sound('TwistedTwins/Three'), 0.6);
 					var ready:FlxSprite = new FlxSprite().loadGraphic(Paths.image(introAlts[0]));
 					ready.scrollFactor.set();
-					ready.updateHitbox();
-
-					if (curStage.startsWith('school'))
-						ready.setGraphicSize(Std.int(ready.width * daPixelZoom));
-
 					ready.screenCenter();
 					add(ready);
 					FlxTween.tween(ready, {y: ready.y += 100, alpha: 0}, Conductor.crochet / 1000, {
@@ -1240,14 +1276,11 @@ class PlayState extends MusicBeatState
 							ready.destroy();
 						}
 					});
-					FlxG.sound.play(Paths.sound('intro2' + altSuffix), 0.6);
+					
 				case 2:
+					FlxG.sound.play(Paths.sound('TwistedTwins/Two'), 0.6);
 					var set:FlxSprite = new FlxSprite().loadGraphic(Paths.image(introAlts[1]));
 					set.scrollFactor.set();
-
-					if (curStage.startsWith('school'))
-						set.setGraphicSize(Std.int(set.width * daPixelZoom));
-
 					set.screenCenter();
 					add(set);
 					FlxTween.tween(set, {y: set.y += 100, alpha: 0}, Conductor.crochet / 1000, {
@@ -1257,16 +1290,9 @@ class PlayState extends MusicBeatState
 							set.destroy();
 						}
 					});
-					FlxG.sound.play(Paths.sound('intro1' + altSuffix), 0.6);
 				case 3:
 					var go:FlxSprite = new FlxSprite().loadGraphic(Paths.image(introAlts[2]));
 					go.scrollFactor.set();
-
-					if (curStage.startsWith('school'))
-						go.setGraphicSize(Std.int(go.width * daPixelZoom));
-
-					go.updateHitbox();
-
 					go.screenCenter();
 					add(go);
 					FlxTween.tween(go, {y: go.y += 100, alpha: 0}, Conductor.crochet / 1000, {
@@ -1276,8 +1302,13 @@ class PlayState extends MusicBeatState
 							go.destroy();
 						}
 					});
-					FlxG.sound.play(Paths.sound('introGo' + altSuffix), 0.6);
+					FlxG.sound.play(Paths.sound('TwistedTwins/One'), 0.6);
 				case 4:
+					FlxG.sound.play(Paths.sound('TwistedTwins/Go'), 0.6);
+					new FlxTimer().start(0.45, function(tmr:FlxTimer)
+					{
+							startedCountdown = true;
+					});
 			}
 
 			swagCounter += 1;
@@ -1288,7 +1319,6 @@ class PlayState extends MusicBeatState
 	var previousFrameTime:Int = 0;
 	var lastReportedPlayheadPosition:Int = 0;
 	var songTime:Float = 0;
-
 
 	var songStarted = false;
 
@@ -1306,6 +1336,13 @@ class PlayState extends MusicBeatState
 
 		FlxG.sound.music.onComplete = endSong;
 		vocals.play();
+
+		if (temDoisOponente)
+		{
+			remove(vocals);
+			enemyVoices1.play();
+			enemyVoices2.play();
+		}
 
 		// Song duration in a float, useful for the time left feature
 		songLength = FlxG.sound.music.length;
@@ -1366,11 +1403,17 @@ class PlayState extends MusicBeatState
 
 		curSong = songData.song;
 
+		if (temDoisOponente && SONG.needsVoices) // tem sim, seu VIADO
+		{
+			enemyVoices1 = new FlxSound().loadEmbedded(Paths.enemyVoices1(PlayState.SONG.song));
+			enemyVoices2 = new FlxSound().loadEmbedded(Paths.enemyVoices2(PlayState.SONG.song));
+			FlxG.sound.list.add(enemyVoices1);
+			FlxG.sound.list.add(enemyVoices2);
+		}
 		if (SONG.needsVoices)
 			vocals = new FlxSound().loadEmbedded(Paths.voices(PlayState.SONG.song));
 		else
 			vocals = new FlxSound();
-
 		FlxG.sound.list.add(vocals);
 
 		notes = new FlxTypedGroup<Note>();
@@ -1687,6 +1730,20 @@ class PlayState extends MusicBeatState
 		Conductor.songPosition = FlxG.sound.music.time;
 		vocals.time = Conductor.songPosition;
 		vocals.play();
+		if (temDoisOponente)
+		{
+			enemyVoices1.pause();
+			FlxG.sound.music.play();
+			Conductor.songPosition = FlxG.sound.music.time;
+			enemyVoices1.time = Conductor.songPosition;
+			enemyVoices1.play();
+			
+			enemyVoices2.pause();
+			FlxG.sound.music.play();
+			Conductor.songPosition = FlxG.sound.music.time;
+			enemyVoices2.time = Conductor.songPosition;
+			enemyVoices2.play();
+		}
 
 		#if windows
 		DiscordClient.changePresence(detailsText + " " + SONG.song + " (" + storyDifficultyText + ") " + Ratings.GenerateLetterRank(accuracy), "\nAcc: " + HelperFunctions.truncateFloat(accuracy, 2) + "% | Score: " + songScore + " | Misses: " + misses  , iconRPC);
@@ -1846,11 +1903,12 @@ class PlayState extends MusicBeatState
 		// FlxG.watch.addQuick('VOL', vocals.amplitudeLeft);
 		// FlxG.watch.addQuick('VOLRight', vocals.amplitudeRight);
 
-		iconP1.setGraphicSize(Std.int(FlxMath.lerp(150, iconP1.width, 0.50)));
-		iconP2.setGraphicSize(Std.int(FlxMath.lerp(150, iconP2.width, 0.50)));
+		//iconP1.setGraphicSize(Std.int(FlxMath.lerp(150, iconP1.width, 0.50)));
+		//iconP2.setGraphicSize(Std.int(FlxMath.lerp(150, iconP2.width, 0.50)));
 
-		iconP1.updateHitbox();
-		iconP2.updateHitbox();
+		//iconP1.updateHitbox();
+		//iconP2.updateHitbox();
+		// update scale with lerp
 
 		var iconOffset:Int = 26;
 
@@ -1906,6 +1964,15 @@ class PlayState extends MusicBeatState
 				Conductor.songPosition += FlxG.elapsed * 1000;
 				if (Conductor.songPosition >= 0)
 					startSong();
+			}
+			if (curSong.toLowerCase() == 'twisted twins' && curStage == 'countdownStage')
+			{
+				if (startedCountdown)
+				{
+					Conductor.songPosition += FlxG.elapsed * 1000;
+					if (Conductor.songPosition >= 0)
+						startSong();
+				}
 			}
 		}
 		else
@@ -2069,7 +2136,7 @@ class PlayState extends MusicBeatState
 						camFollow.x = dad.getMidpoint().x - 100;
 				}
 
-				if (dad.curCharacter == 'mom')
+				if (dad.curCharacter == 'yourmom')
 					vocals.volume = 1;
 			}
 
@@ -2154,6 +2221,11 @@ class PlayState extends MusicBeatState
 			persistentDraw = false;
 			paused = true;
 
+			if (temDoisOponente)
+			{
+				enemyVoices1.stop();
+				enemyVoices2.stop();
+			}
 			vocals.stop();
 			FlxG.sound.music.stop();
 
@@ -2175,7 +2247,12 @@ class PlayState extends MusicBeatState
 					persistentUpdate = false;
 					persistentDraw = false;
 					paused = true;
-		
+
+					if (temDoisOponente)
+					{
+						enemyVoices1.stop();
+						enemyVoices2.stop();
+					}
 					vocals.stop();
 					FlxG.sound.music.stop();
 		
@@ -2340,8 +2417,13 @@ class PlayState extends MusicBeatState
 
 						dad.holdTimer = 0;
 	
-						if (SONG.needsVoices)
+						if (SONG.needsVoices){
+							if (temDoisOponente){
+								enemyVoices1.volume = 1;
+								enemyVoices2.volume = 1;
+							}
 							vocals.volume = 1;
+						}
 	
 						daNote.active = false;
 
@@ -2389,6 +2471,11 @@ class PlayState extends MusicBeatState
 							{
 								health -= 0.075;
 								vocals.volume = 0;
+								if (temDoisOponente)
+								{
+									enemyVoices1.volume = 0;
+									enemyVoices2.volume = 0;
+								}
 								if (theFunne)
 									noteMiss(daNote.noteData, daNote);
 							}
