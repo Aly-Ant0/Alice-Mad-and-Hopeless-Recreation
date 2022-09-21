@@ -100,6 +100,16 @@ class Paths
 		return 'songs:assets/songs/${song.toLowerCase()}/Voices.$SOUND_EXT';
 	}
 
+	inline static public function enemyVoice1(song:String)
+	{
+		return 'songs:assets/songs/${song.toLowerCase()}/EnemyVoice1.$SOUND_EXT';
+	}
+
+	inline static public function enemyVoice2(song:String)
+	{
+		return 'songs:assets/songs/${song.toLowerCase()}/EnemyVoice2.$SOUND_EXT';
+	}
+
 	inline static public function inst(song:String)
 	{
 		return 'songs:assets/songs/${song.toLowerCase()}/Inst.$SOUND_EXT';
