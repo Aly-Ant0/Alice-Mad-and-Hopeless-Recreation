@@ -1090,14 +1090,13 @@ class PlayState extends MusicBeatState
 					startCountdown();
 			}
 		}
-		else
-		{
-			switch (curSong.toLowerCase())
+			switch (curSong.toLowerCase()) // falsefobia qualé kade
 			{
+				case 'twisted twins':
+					temDoisOponente = true;
 				default:
-					startCountdown();
+					temDoisOponente = false;
 			}
-		}
 
 		if (!loadRep)
 			rep = new Replay("na");
