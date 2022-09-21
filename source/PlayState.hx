@@ -377,7 +377,7 @@ class PlayState extends MusicBeatState
 
 				var light:FlxSprite = new FlxSprite(-455, -580).loadGraphic(Paths.twistedStage('light2'));
 				light.antialiasing = true;
-				light.setGraphicSize(Std.int(light.width * 1.8);
+				light.setGraphicSize(Std.int(light.width * 1.9));
 				light.updateHitbox();
 				light.scrollFactor.set(0.2, 0.2);
 				add(light);
