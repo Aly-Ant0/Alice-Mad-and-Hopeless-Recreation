@@ -1210,10 +1210,11 @@ class PlayState extends MusicBeatState
 
 	function startCountdown():Void
 	{
-		inCutscene = false;
+		var blackStart:FlxSprite = new FlxSprite().makeGraphic(FlxG.width * 5, FlxG.height * 5, FlxColor.BLACK);
+		blackStart.alpha=0.00001;
+		add(blackStart);
 
-		generateStaticArrows(0);
-		generateStaticArrows(1);
+		inCutscene = false;
 
 		#if (windows || android)
 		if (executeModchart)
@@ -1302,11 +1303,17 @@ class PlayState extends MusicBeatState
 						}
 					});
 					FlxG.sound.play(Paths.sound('TwistedTwins/One'), 0.6);
+					FlxTween.tween(blackStart, {alpha:1}, 1);
+					FlxTween.tween(camGame, {zoom: camGame.zoom + 1}, 1);
 				case 4:
 					FlxG.sound.play(Paths.sound('TwistedTwins/Go'), 0.6);
 					new FlxTimer().start(0.45, function(tmr:FlxTimer)
 					{
 							startedCountdown = true;
+							FlxTween.tween(blackStart, {alpha:0}, 0.3);
+							FlxTween.tween(camGame, {zoom: camGame.zoom - 1}, 0.3);
+							generateStaticArrows(0);
+							generateStaticArrows(1);
 					});
 			}
 
