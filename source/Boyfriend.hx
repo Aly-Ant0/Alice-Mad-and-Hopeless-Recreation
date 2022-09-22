@@ -7,9 +7,15 @@ import flixel.util.FlxTimer;
 
 using StringTools;
 
+// first time that i code character movement
 class Boyfriend extends Character
 {
+	var controls:Controls;
 	public var stunned:Bool = false;
+	public var runningMan:Bool = false;
+	public var yMin:Float = 0;
+	public var yMax:Float = 0;
+	public var canRun:Bool = false;
 
 	public function new(x:Float, y:Float, ?char:String = 'bf')
 	{
@@ -18,6 +24,31 @@ class Boyfriend extends Character
 
 	override function update(elapsed:Float)
 	{
+		if (curCharacter == 'alice-running' && canRun)
+		{
+			if (controls.RIGHT)
+			{
+				velocity.x = 120;
+			}
+			else if (controls.UP)
+			{
+				velocity.y = -120;
+			}
+			else if (controls.DOWN)
+			{
+				velocity.y = 120;
+			}
+
+			if (y < yMin)
+			{
+				y = yMin;
+			}
+			else if (y > yMax)
+			{
+				y = yMax;
+			}
+		}
+
 		if (!debugMode)
 		{
 			if (animation.curAnim.name.startsWith('sing'))
