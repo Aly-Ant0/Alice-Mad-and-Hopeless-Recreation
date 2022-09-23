@@ -1411,8 +1411,8 @@ class PlayState extends MusicBeatState
 
 		if (temDoisOponente && SONG.needsVoices) // tem sim, seu VIADO
 		{
-			enemyVoices1 = new FlxSound().loadEmbedded(Paths.enemyVoices1(PlayState.SONG.song));
-			enemyVoices2 = new FlxSound().loadEmbedded(Paths.enemyVoices2(PlayState.SONG.song));
+			enemyVoices1 = new FlxSound().loadEmbedded(Paths.enemyVoice1(PlayState.SONG.song));
+			enemyVoices2 = new FlxSound().loadEmbedded(Paths.enemyVoice2(PlayState.SONG.song));
 			FlxG.sound.list.add(enemyVoices1);
 			FlxG.sound.list.add(enemyVoices2);
 		}
@@ -1605,6 +1605,9 @@ class PlayState extends MusicBeatState
 							babyArrow.animation.addByPrefix('pressed', 'right press', 24, false);
 							babyArrow.animation.addByPrefix('confirm', 'right confirm', 24, false);
 						}
+				case 'Dum Note':
+
+				case 'Dee Note':
 
 				default:
 					babyArrow.frames = Paths.getSparrowAtlas('NOTE_assets');
