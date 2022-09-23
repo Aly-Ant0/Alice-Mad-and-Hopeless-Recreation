@@ -3,17 +3,20 @@ import flixel.FlxG;
 
 class KadeEngineData
 {
-    public static function initSave()
-    {
+	public static function initSave()
+	{
         if (FlxG.save.data.newInput == null)
 			FlxG.save.data.newInput = true;
 
 		if (FlxG.save.data.downscroll == null)
 			FlxG.save.data.downscroll = false;
 
+		if (FlxG.save.data.middleScroll == null)
+			FlxG.save.data.middleScroll = false;
+
 		if (FlxG.save.data.dfjk == null)
 			FlxG.save.data.dfjk = false;
-			
+
 		if (FlxG.save.data.accuracyDisplay == null)
 			FlxG.save.data.accuracyDisplay = true;
 
