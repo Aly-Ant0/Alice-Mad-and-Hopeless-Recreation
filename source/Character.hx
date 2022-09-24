@@ -420,13 +420,10 @@ class Character extends FlxSprite
 				//animation.play('firstDeath');
 
 				addOffset('idle', -5);
-				addOffset("singUP", -29, 27);
-				addOffset("singRIGHT", -38, -7);
-				addOffset("singLEFT", 12, -6);
+				addOffset("singUP", -2, 27);
+				addOffset("singRIGHT", -10, -7);
+				addOffset("singLEFT", -2, -6);
 				addOffset("singDOWN", -10, -50);
-
-				setGraphicSize(Std.int(width * 1.4));
-				updateHitbox();
 				antialiasing = true;
 				flipX = true; // sla saporra
 			case 'alice-happy':
@@ -444,9 +441,6 @@ class Character extends FlxSprite
 				addOffset("singRIGHT", -38, -7);
 				addOffset("singLEFT", 12, -6);
 				addOffset("singDOWN", -10, -50);
-
-				setGraphicSize(Std.int(width * 1.4));
-				updateHitbox();
 				antialiasing = true;
 				flipX = true; // sla saporra
 			case 'dee':
