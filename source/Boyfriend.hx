@@ -30,7 +30,11 @@ class Boyfriend extends Character
 			{
 				velocity.x = 120;
 			}
-			else if (controls.UP)
+			else 
+			{
+				velocity.x = 0;
+			}
+			if (controls.UP)
 			{
 				velocity.y = -120;
 			}
@@ -38,12 +42,16 @@ class Boyfriend extends Character
 			{
 				velocity.y = 120;
 			}
+			else
+			{
+				velocity.y = 0;
+			}
 
-			if (y < yMin)
+			if (y > yMin)
 			{
 				y = yMin;
 			}
-			else if (y > yMax)
+			else if (y < yMax)
 			{
 				y = yMax;
 			}
